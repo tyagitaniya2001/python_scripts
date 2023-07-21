@@ -11,6 +11,7 @@ pipeline {
 
         stage('run script') {
             steps{
+                bat "python --version"
                 bat 'pip install --upgrade setuptools'
                 bat "pip install -r requirements.txt"
                 bat 'pip install --upgrade snowflake-connector-python'
