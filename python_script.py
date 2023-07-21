@@ -1,7 +1,5 @@
 from logging import getLogger
-from snowflake.ingest import SimpleIngestManager
-from snowflake.ingest import StagedFile
-from snowflake.ingest.utils.uris import DEFAULT_SCHEME
+
 from datetime import timedelta
 from requests import HTTPError
 from cryptography.hazmat.primitives import serialization
@@ -14,6 +12,10 @@ import time
 import datetime
 import os
 import logging
+from snowflake.ingest import SimpleIngestManager
+from snowflake.ingest import StagedFile
+from snowflake.ingest.utils.uris import DEFAULT_SCHEME
+
 
 
 
