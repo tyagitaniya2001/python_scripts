@@ -11,6 +11,7 @@ pipeline {
 
         stage('run script') {
             steps{
+                bat 'pip install --upgrade setuptools'
                 bat 'pip install virtualenv'
                 bat 'python -m virtualenv myenv'
                 bat 'call myenv/bin/activate'
