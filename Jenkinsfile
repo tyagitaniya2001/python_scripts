@@ -4,7 +4,7 @@ pipeline {
             image 'python:3.9'
         }
     }
-    }
+    
     stages {
 
         stage('Test run') {
