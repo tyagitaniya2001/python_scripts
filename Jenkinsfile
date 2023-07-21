@@ -13,6 +13,7 @@ pipeline {
             steps{
                 bat 'pip install --upgrade setuptools'
                 bat "pip3 install -r requirements.txt"
+                bat 'pip install --upgrade snowflake-connector-python'
                 bat "python3 python_script.py"
                 }
             }
