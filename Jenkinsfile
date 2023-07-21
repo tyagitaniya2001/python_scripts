@@ -16,6 +16,7 @@ pipeline {
                 bat "pip install -r requirements.txt"
                 bat 'pip install --upgrade snowflake-connector-python'
                 bat 'pip freeze -r requirements.txt'
+                bat 'pip install snowflake-ingest'
                 bat "python test.py"
                 bat "python python_script.py"
                 
