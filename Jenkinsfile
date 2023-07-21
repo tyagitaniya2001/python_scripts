@@ -10,10 +10,10 @@ pipeline {
 
         stage('run script') {
             steps{
-                sh 'python -m venv venv'
-                sh 'source venv/bin/activate'
-                sh "pip3 install -r requirements.txt"
-                sh "python3 python_script.py"
+                bat 'python -m venv venv'
+                bat 'source venv/bin/activate'
+                bat "pip3 install -r requirements.txt"
+                bat "python3 python_script.py"
                 }
             }
 
