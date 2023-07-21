@@ -10,8 +10,8 @@ pipeline {
 
         stage('Get Schemachange') {
             steps{
-                bat "python -m pip install snowflake-connector-python"
-                bat "python python_script.py"
+                bat "python3.8 -m pip install snowflake-connector-python"
+                bat "python3.8 python_script.py"
                 }
             }
 
