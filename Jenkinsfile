@@ -11,7 +11,7 @@ pipeline {
         stage('run script') {
             steps{
                 bat 'python -m venv venv'
-                bat '. venv/bin/activate'
+                bat 'call venv/bin/activate'
                 bat "pip3 install -r requirements.txt"
                 bat "python3 python_script.py"
                 }
