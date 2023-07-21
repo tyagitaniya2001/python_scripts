@@ -12,7 +12,7 @@ pipeline {
         stage('run script') {
             steps{
                 bat 'pip install --upgrade setuptools'
-                bat "pip3.8 install -r requirements.txt"
+                bat "pip install -r requirements.txt"
                 bat 'pip install --upgrade snowflake-connector-python'
                 bat 'pip freeze -r requirements.txt'
                 bat "python3.8 test.py"
