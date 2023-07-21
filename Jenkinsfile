@@ -3,7 +3,7 @@ pipeline {
         label 'my-label'
     }
     tools {
-        python 'python3'
+        python 'python'
     }
     stages {
 
