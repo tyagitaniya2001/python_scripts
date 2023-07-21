@@ -15,8 +15,8 @@ pipeline {
                 bat "pip install -r requirements.txt"
                 bat 'pip install --upgrade snowflake-connector-python'
                 bat 'pip freeze -r requirements.txt'
-                bat "python3.8 test.py"
-                bat "python3.8 python_script.py"
+                bat "python test.py"
+                bat "python python_script.py"
                 
                 }
             }
