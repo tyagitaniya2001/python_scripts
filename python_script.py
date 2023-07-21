@@ -12,9 +12,6 @@ import time
 import datetime
 import os
 import logging
-from snowflake.ingest import SimpleIngestManager
-from snowflake.ingest import StagedFile
-from snowflake.ingest.utils.uris import DEFAULT_SCHEME
 
 
 
@@ -33,8 +30,13 @@ with open("C:/Users/taniya.tyagi/rsa_key.p8", 'rb') as pem_in:
 
 private_key_text = private_key_obj.private_bytes(
   Encoding.PEM, PrivateFormat.PKCS8, NoEncryption()).decode('utf-8')
+print("step 1")
 
 file_list=['Customer_01.csv']
+from snowflake.ingest import SimpleIngestManager
+from snowflake.ingest import StagedFile
+from snowflake.ingest.utils.uris import DEFAULT_SCHEME
+
 ingest_manager = SimpleIngestManager(account='hxasgtu-dy54546',
                                      host='hxasgtu-dy54546.snowflakecomputing.com',
                                      user='TANIYATYAGI28',
