@@ -1,5 +1,11 @@
 pipeline {
-    agent any
+    agent 
+    agent {
+        label 'my-label'
+    }
+    tools {
+        python 'python3'
+    }
     stages {
 
         stage('Test run') {
