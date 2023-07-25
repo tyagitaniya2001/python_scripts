@@ -14,6 +14,31 @@ import os
 import logging
 
 
+import snowflake.connector as sf
+
+print("snowflake")
+
+sf_object=sf.connect(user='TANIYATYAGI28',
+                     password='Hexaview@2001',
+                     account='hxasgtu-dy54546',
+                     role='ACCOUNTADMIN',
+                     warehouse='TEST_WH',
+                     database='TEST_DB_3',
+                     schema='SCHEMA_TEST')
+
+
+sqlSnowflake = sf_object.cursor()
+
+result=sqlSnowflake.execute("LIST @my_csv_stage PATTERN='.*Customer.*';")
+
+print(result)
+filelist=[]
+for row in result:
+    print(row)
+    filename = row[0]
+    filelist.append(filename.split('/', 1)[-1])
+   
+print(filelist)
 
 
 #logging.basicConfig(
@@ -32,7 +57,6 @@ private_key_text = private_key_obj.private_bytes(
   Encoding.PEM, PrivateFormat.PKCS8, NoEncryption()).decode('utf-8')
 print("step 1")
 
-file_list=['Customer_01.csv']
 from snowflake.ingest import SimpleIngestManager
 from snowflake.ingest import StagedFile
 from snowflake.ingest.utils.uris import DEFAULT_SCHEME
@@ -45,8 +69,13 @@ ingest_manager = SimpleIngestManager(account='hxasgtu-dy54546',
 
 print("CONNECTED")
 
+#file_list=['Customer_03.csv','Customer_04.csv','Customer_05.csv']
+
+
+
+file_list=['*.csv']
 staged_file_list = []
-for file_name in file_list:
+for file_name in filelist:
     staged_file_list.append(StagedFile(file_name, None))
     
 print(staged_file_list)
@@ -74,6 +103,3 @@ while True:
     hour = timedelta(hours=1)
     date = datetime.datetime.utcnow() - hour
     history_range_resp = ingest_manager.get_history_range(date.isoformat() + 'Z')
-
-    print('\nHistory scan report: \n')
-    print(history_range_resp)
